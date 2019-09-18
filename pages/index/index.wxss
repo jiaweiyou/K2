@@ -1,0 +1,108 @@
+/**index.wxss**/
+
+page {
+  background: #f2f1ee;
+}
+
+/*顶部提示信息*/
+
+.topinfo {
+  padding: 30rpx 10rpx;
+  background: #fff;
+}
+
+.topinfo text {
+  color: #a6a6a6;
+}
+
+.topinfo .title {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+
+/*间隔*/
+
+.gap {
+  padding: 5rpx 10rpx;
+}
+
+.gap text {
+  color: #a6a6a6;
+}
+
+/*播放列表表*/
+
+.index-list-item {
+  background: #fff;
+  padding: 15rpx 30rpx;
+  overflow: hidden;
+  position:relative;
+}
+
+.index-list-item::active {
+  background: #eee;
+}
+
+.index-list-item .cover {
+  float: left;
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+}
+
+
+.index-list-item .cover image.cover-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.index-list-item .content {
+  margin-left: 180rpx;
+}
+
+.index-list-item .title {
+  display: inline-block;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding-top: 10rpx;
+}
+
+.index-list-item .desc {
+  display: block;
+  font-size: 25rpx;
+  padding-top: 10rpx;
+  color: rgb(80, 80, 80);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.index-list-item .desc2 {
+  font-size: 25rpx;
+  padding-top: 10rpx;
+  color: rgb(80, 80, 80);
+  size: 5;
+}
+
+/*信息icon*/
+.info {
+  align-items: right;
+}
+
+
+/*加载
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+*/
+
+.loading {
+  position: relative;
+  bottom: 5rpx;
+  padding: 10rpx;
+  text-align: center;
+}

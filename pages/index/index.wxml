@@ -1,0 +1,58 @@
+<!--index.wxml-->
+
+<view class="topinfo" style="width:100%;position:relative;">
+  <view class="title">「精选播客推荐」公众号收录列表</view>
+</view>
+<!--
+  <official-account style="top:0;width:100%；height:168rpx">
+  </official-account>
+  -->
+<view class="gap" style="width:100%;position:relative;">
+</view>
+
+
+
+
+<scroll-view scroll-y="true" style="width:100%;position:relative;">
+  <block wx:for="{{pods}}">
+    <view class="index-list-item">
+
+    <block wx:if="{{item.URLType == 1}}">
+    <view class="cover">
+          <image class="cover-img" data-mp="{{item.mp3URL}} " data-title="{{item.title}} " data-host="{{item.hostName}}"  src="{{item.hostPic}}" data-pid="{{item.podcastID}}" mode="scaleToFill"></image>
+        </view>
+     </block>
+      <block wx:elif="{{item.URLType == 2}}">
+      <!--播放-->
+      <block wx:if="{{playingID == item.podcastID && playing == true}}">
+        <view class="cover">
+          <image class="cover-img" data-mp="{{item.mp3URL}} " data-title="{{item.title}} " data-host="{{item.hostName}}" bindtap="audioPlay" src="../imgs/pause.png" data-pid="{{item.podcastID}}" mode="center"></image>
+        </view>
+      </block>
+      <block wx:elif="{{playingID == item.podcastID && playing == flase}}">
+        <view class="cover">
+          <image class="cover-img" data-mp="{{item.mp3URL}} " data-title="{{item.title}} " data-host="{{item.hostName}}" bindtap="audioPlay" src="../imgs/play.png" data-pid="{{item.podcastID}}" mode="center"></image>
+        </view>
+      </block>
+      <!--暂停播放-->
+      <block wx:else="{{playingID != item.podcastID}}">
+        <view class="cover">
+          <image class="cover-img" data-mp="{{item.mp3URL}} " data-title="{{item.title}} " data-host="{{item.hostName}}" bindtap="audioPlay" src="../imgs/play.png" data-pid="{{item.podcastID}}" mode="center"></image>
+        </view>
+      </block>
+</block>
+      <view class="content">
+        <view class="title">{{item.title}}</view>
+        <text class="desc">所属节目 {{item.hostName}}</text>
+        <text class="desc2">时长  {{item.during}}分钟 | 发布 {{item.estDate}} </text>
+        <icon data-bid="{{item.updateDate}}" bindtap="clickinfo" style="float:right;" size="40rpx" type="info" color="rgb(80, 80, 80)" />
+      </view>
+    </view>
+    <view class="gap" style="width:100%;position:relative;"></view>
+  </block>
+  
+  
+  <view class="loading" hidden="{{!loadMore}}">正在载入更多...</view>
+  <view class="loading" hidden="{{!loadAll}}">已加载全部</view>
+
+</scroll-view>
